@@ -37,7 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home',
+    'bootstrapform',
+    'sas.apps.SasConfig',
+    'login.apps.LoginConfig',
+    'socios.apps.SociosConfig',
+    'citaciones.apps.CitacionesConfig',
+    'reportes.apps.ReportesConfig',
+    'cuotas.apps.CuotasConfig',
 ]
 
 MIDDLEWARE = [
@@ -104,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 

@@ -1,0 +1,67 @@
+{% extends "sas/base.html" %}
+{% block title %} Buscar Socios {% endblock %}
+{% block content %}
+	 <div class="container">
+      <div class="row">
+
+			<h1>Buscar socio</h1>
+			
+			<br>
+      		<form action="" method="GET" class="form-inline">
+      			<input type="text" name="q" placeholder="Rut, Nombre o Apellidos" value="{{ request.GET.q }}" class="form-control" id="form_buscar" >
+      			<input type="submit" value="Buscar" class="btn btn-success">
+      		</form>
+			<br>
+      		<div class="col-xs-12">
+	      		{% if request.GET.q %}
+	      		<table class="table table-striped table-bordered table-hover" id="tabla">
+	      			<thead>
+						<tr>
+								<th>ID</th>
+								<th>Rut</th>
+								<th>Nombre</th>
+								<th>Apellido Paterno</th>
+								<th>Apellido Materno</th>
+								<th>Ver</th>
+								<th>Editar</th>
+								<th>Eliminar</th>
+							</tr>
+					</thead>
+					<tfoot>
+						<tr>
+								<th>ID</th>
+								<th>Rut</th>
+								<th>Nombre</th>
+								<th>Apellido Paterno</th>
+								<th>Apellido Materno</th>
+								<th>Ver</th>
+								<th>Editar</th>
+								<th>Eliminar</th>
+							</tr>
+					</tfoot>
+					<tbody>
+						{% for socio in all_socios %}
+							<tr>
+								<td>{{socio.id}}</td>
+								<td>{{socio.rut_socio}}</td>
+								<td>{{socio.nom_socio}}</td>
+								<td>{{socio.apel_pat_socio}}</td>
+								<td>{{socio.apel_mat_socio}}</td>
+								<td><a href="{% url 'socios:socio' id=socio.id  %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+								<td><a href="{% url 'socios:editar-socio' id=socio.id  %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+								<td><a href="{% url 'socios:eliminar-socio' id=socio.id  %}"><span class="glyphicon glyphicon-trash "></span></a></td>						
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+	      		{% endif %}
+      		</div>
+      		<br>
+      	</div>
+      </div>
+      
+  
+
+
+	
+{% endblock %}
